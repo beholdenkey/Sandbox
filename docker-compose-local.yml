@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  keycloak-gatekeeper:
+    image: docker.io/bitnami/keycloak-gatekeeper:10
+    ports:
+      - '3000:3000'
+    command:
+      - /keycloak-gatekeeper
+      - --listen
+      - 127.0.0.1:3000
+      - --upstream-url
+      - http://127.0.0.1:80
+      - --discovery-url
+      - http://127.0.0.1:8080/auth/realms/Pinewood
+      - --encryption_key
+      - --client-id
+      - nautobot-oidc
+      - --client-secret
+      - 8df2303f-f62c-4350-90fd-1678d7d8eef4
