@@ -1,0 +1,37 @@
+#Assuming you have some web service you wish protected by Keycloak;
+#Create the client under the Keycloak GUI or CLI; the client protocol is 'openid-connect', access-type: confidential.
+#Add a Valid Redirect URIs of http://127.0.0.1:3000/oauth/callback.
+#Grab the client id and client secret.
+#Create the various roles under the client or existing clients for authorization purposes.
+
+client-id: <CLIENT_ID>
+client-secret: <CLIENT_SECRET> # require for access_type: confidential
+# Note the redirection-url is optional, it will default to the X-Forwarded-Proto / X-Forwarded-Host r the URL scheme and host not found
+discovery-url: https://keycloak.example.com/auth/realms/<REALM_NAME>
+enable-default-deny: true
+encryption_key: AgXa7xRcoClDEU0ZDSH4X0XhL5Qy2Z2j
+listen: 127.0.0.1:3000
+redirection-url: http://127.0.0.1:3000
+upstream-url: http://127.0.0.1:80
+resources:
+  - uri: /admin*
+    methods:
+      - GET
+    roles:
+      - client:test1
+      - client:test2
+    require-any-role: true
+    groups:
+      - admins
+      - users
+  - uri: /backend*
+    roles:
+      - client:test1
+  - uri: /public/*
+    white-listed: true
+  - uri: /favicon
+    white-listed: true
+  - uri: /css/*
+    white-listed: true
+  - uri: /img/*
+    white-listed: true
