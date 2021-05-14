@@ -1,0 +1,53 @@
+version: "1"
+
+volumes:
+  my_data:
+
+networks:
+  my_network:
+    driver: bridge
+
+services:
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - my_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keybox  
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: P@ssw0rd12
+    networks:
+      - my_network 
+  
+  keycloak:
+      image: jboss/keycloak
+      environment:
+        DB_VENDOR: POSTGRES
+        DB_ADDR: db
+        DB_DATABASE: keybox
+        DB_USER: admin
+        DB_SCHEMA: public
+        DB_PASSWORD: P@ssw0rd12
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: P@ssw0rd12
+      ports:
+        - 8080:8080
+      depends_on:
+        - db
+      networks:
+        - my_network
+
+     
+  keycloak-gatekeeper:
+      image: docker.io/bitnami/keycloak-gatekeeper:10
+      ports:
+        - '3000:3000'
+      networks: 
+        - my_network
+  
+  nautobot:
+      image: networktocode/nautobot-lab
+      ports:
+        - '8000:8000'
+      networks:
+        - my_networks
