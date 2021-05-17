@@ -1,0 +1,10 @@
+What is Keybox?
+
+Keybox is a combination of configurations and applications. Consisting of Keycloak and Keycloak Gatekeeper. 
+These configuration guidelines are meant to simplify the process of understanding how to set up keycloak
+and Keycloak Gatekeeper as a reverse proxy for redirection and authentication. This process can be confusing
+and, at times, convoluted. 
+
+Contribution:
+If you have any interest in Contributing your knowledge expertise or anything you have found helpful when it comes to this
+please feel free to reach out. 
