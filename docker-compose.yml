@@ -8,6 +8,7 @@ networks:
 services:
   db:
     image: postgres:12.0-alpine
+    container_name: Blackwood-Database
     volumes:
       - my_data:/var/lib/postgresql/data
     environment:
@@ -19,6 +20,7 @@ services:
   
   keycloak:
       image: jboss/keycloak
+      container_name: Blackwood-Keycloak
       environment:
         DB_VENDOR: POSTGRES
         DB_ADDR: db
@@ -36,16 +38,17 @@ services:
         - my_network
 
      
-  keycloak-gatekeeper:
-      image: docker.io/bitnami/keycloak-gatekeeper:10
-      ports:
-        - '3000:3000'
-      networks: 
-        - my_network
+  #keycloak-gatekeeper:
+      #image: docker.io/bitnami/keycloak-gatekeeper:10
+      #ports:
+       # - '3000:3000'
+      #networks: 
+       # - my_network
   
   nautobot:
       image: networktocode/nautobot-lab
+      container_name: nautobot-lab
       ports:
         - '8000:8000'
       networks:
-        - my_networks
+        - my_network
