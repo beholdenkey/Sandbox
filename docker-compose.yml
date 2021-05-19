@@ -18,6 +18,9 @@ services:
       POSTGRES_PASSWORD: P@ssw0rd12
     networks:
       - my_network 
+      default:
+        aliases: 
+          - postgres
   
   keycloak:
       image: jboss/keycloak
@@ -37,6 +40,9 @@ services:
         - db
       networks:
         - my_network
+        default:
+          aliases: 
+            - keycloak
 
      
   #keycloak-gatekeeper:
@@ -55,3 +61,6 @@ services:
         - '8000:8000'
       networks:
         - my_network
+        default:
+          aliases: 
+            - nautobot
