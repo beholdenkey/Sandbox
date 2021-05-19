@@ -13,3 +13,6 @@ securing our Django applications with Keycloak and what the process is to do tha
 ### *Contribution:*
 If you have any interest in Contributing your knowledge expertise or anything you have found helpful when it comes to this
 please feel free to reach out. 
+
+
+###### *Objective:*
