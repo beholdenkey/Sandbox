@@ -1,89 +1,67 @@
+version: "3"
+
 volumes:
   my_data:
 
 networks:
-  my_network:
+  dev_network:
     driver: bridge
 
 services:
   db:
+    container_name: Blackwood-Postgres
     image: postgres:12.0-alpine
-    container_name: Blackwood-Database
     volumes:
       - my_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: keybox  
+      POSTGRES_DB: blackwood  
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: P@ssw0rd12
     networks:
-      - my_network
-  version: '3.9'
+      - dev_network 
   
-keycloak:
-  image: jboss/keycloak
-  container_name: Blackwood-Keycloak
-  environment:
-    DB_VENDOR: POSTGRES
-    DB_ADDR: db
-    DB_DATABASE: keybox
-    DB_USER: admin
-    DB_SCHEMA: public
-    DB_PASSWORD: P@ssw0rd12
-    KEYCLOAK_USER: admin      
-    KEYCLOAK_PASSWORD: P@ssw0rd12
-    ports:
-      - 8080:8080
-    expose: 
-      - 8080
-    depends_on:
+  keycloak:
+      container_name: Blackwood-Keycloak
+      image: jboss/keycloak
+      hostname: keycloak.jcu.dev
+      environment:
+        DB_VENDOR: POSTGRES
+        DB_ADDR: db
+        DB_DATABASE: blackwood
+        DB_USER: admin
+        DB_SCHEMA: public
+        DB_PASSWORD: P@ssw0rd12
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: P@ssw0rd12
+      ports:
+        - 8080:8080
+      expose:
+        - 8080
+        - 8000
+      depends_on:
         - db
-    networks:
-        - my_network
+      networks:
+        - dev_network
 
-keycloak-gatekeeper:
-  image: docker.io/bitnami/keycloak-gatekeeper:10
-  container_name: gatekeeper
-  ports:
-    - '3000:3000'
-  networks: 
-    - my_network
-  command:
-    - /keycloak-gatekeeper
-    - --listen
-    - 127.0.0.1:8080
-    - --enable-refresh-tokens 
-    - true
-    - --enable-default-deny 
-    - True
-    - --redirection-url 
-    - http://127.0.0.1:3000
-    - --upstream-url
-    - http://127.0.0.1:80
-    - --secure-cookie
-    - false
-    - --discovery-url
-    - http://127.0.0.1:8080/auth/realms/Blackwood
-    - --encryption_key
-    - sflfjljuweru0989
-    - --client-id
-    - gatekeeper
-    - --client-secret
-    - 06875104-5a09-402b-a768-2a3099359205
-  #resources:
-  #   - uri: /*
-  #roles:
-  #   - users
-  #   - uri: /contact
-  #    white-listed: true
+  Nautobot:
+      container_name: Blackwood-Nautobot
+      image: networktocode/nautobot-lab
+      hostname: nautobot.jcu.dev
+      ports:
+        - "8000:8000"
+      expose:
+        - 8000
+        - 8080
+      networks:
+        - dev_network
   
-nautobot:
-  image: networktocode/nautobot-lab
-  container_name: nautobot-lab
-  NAUTOBOT_USER: admin
-  NAUTOBOT_PASSWORD: P@ssw0rd12
-  ports:
-    - '8000:8000'
-  expose:
-    - 8000
-  networks:
-    - my_network
+  keycloak-gatekeeper:
+      container_name: Blackwood-Gatekeeper
+      image: docker.io/bitnami/keycloak-gatekeeper:10
+      ports:
+        - '3000:3000'
+      expose:
+        - 8080
+        - 8000
+      networks:
+        - dev_network     
