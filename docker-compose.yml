@@ -35,7 +35,6 @@ services:
         KEYCLOAK_PASSWORD: P@ssw0rd12
       ports:
         - 8080:8080
-      expose:
       depends_on:
         - db
       networks:
