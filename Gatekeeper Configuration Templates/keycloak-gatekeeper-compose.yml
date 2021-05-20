@@ -3,8 +3,5 @@ keycloak-gatekeeper:
   image: docker.io/bitnami/keycloak-gatekeeper:10
   ports:
     - "3000:3000"
-  expose:
-    - 8080
-    - 8000
   networks:
     - dev_network
