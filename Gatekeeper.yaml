@@ -1,6 +1,6 @@
 client-id: nautobot
 
-client-secret: my-app-secret-from-credentials
+client-secret: 515edc81-7e06-49fa-b29b-bc9b379ab2ed
 
 discovery-url: https://my-keycloak-server.com/auth/realms/my-realm
 
