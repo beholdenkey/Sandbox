@@ -1,7 +1,5 @@
 # **Keybox:**
-Keybox is a combination of configurations for applications. These configurations are intented to make securing applications with keycloak fairly straight forward. These configuration guidelines are meant to simplify the process of understanding how to set up keycloak
-and Keycloak Gatekeeper as a reverse proxy for redirection and authentication. This process can be confusing
-and, at times, convoluted.
+Keybox is a combination of configurations for applications.
 
 ## **Motivation:**
 
