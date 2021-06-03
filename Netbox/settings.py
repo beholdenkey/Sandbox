@@ -26,7 +26,6 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.keycloak.KeycloakOAuth2',  # Add This
-    'nautobot.core.authentication.ObjectPermissionBackend',  # Add This
     REMOTE_AUTH_BACKEND,
     'netbox.authentication.ObjectPermissionBackend',
 ]
