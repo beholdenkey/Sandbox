@@ -8,5 +8,5 @@ There are a lot of configurations and repositories out there with a ton of great
 
 ### *Contribution:*
 
-If you have any interest in Contributing your knowledge expertise or anything you have found helpful when it comes to this
+If you have any interest in contributing knowledge expertise or anything you have found helpful when it comes to this
 please feel free to reach out.
