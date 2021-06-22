@@ -47,7 +47,9 @@ GitLab installation is a pretty straight forward process. We will install the Gi
 
 Start by adding the GitLab repository to your system sources list using the following curl command :
 
+```bash
 curl <https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh> | sudo bash
+```
 
 The script will enable the repository and install necessary dependencies. Once complete, install the GitLab package by running the following command:
 
@@ -59,23 +61,29 @@ You will be prompted to accept the GitLab repository GPG keys. Type y and press 
 
 The installation process may take a while and after a successful installation, you will see the following output:
 
+```bash
 Thank you for installing GitLab!
 ...
 Complete!
+```
 
-Adjusting the Firewall Rules
+## Adjusting the Firewall Rules
 
 The guide about setting up a basic firewall is linked in the prerequisites section. To be able to access the GitLab interface you’ll need to open ports 80 and 443. To do so run the following commands:
 
+```bash
 sudo firewall-cmd --permanent --zone=public --add-service=http
 sudo firewall-cmd --permanent --zone=public --add-service=https
 sudo firewall-cmd --reload
+```
 
-Set the GitLab URL
+## Set the GitLab URL
 
 Before accessing the GitLab web interface we need to set the URL on which GitLab will be reachable. Open Gitlab’s configuration file and make the following changes:
 
+```shell
 sudo vim /etc/gitlab/gitlab.rb
+```
 
 Near the top of the configuration file, you will see a line starting with external_url. Change the value to match your domain/subdomain or IP address. If you have domain use https and if you want to access the GitLab interface through you server IP address use http.
 /etc/gitlab/gitlab.rb
@@ -95,10 +103,13 @@ Finally save and close the file and run the following command to reconfigure Git
 sudo gitlab-ctl reconfigure
 
 The command will reconfigure the GitLab settings and generate a free Let’s encrypt SSL certificate.
-Configure GitLab through the Web Interface
+
+## Configure GitLab through the Web Interface
 
 Now that you have configured the GitLab URL you can start with the initial configuration through the GitLab web interface.
 
 Launch your web browser and navigate to:
 
-https://your_gitlab_domain_or_server_IP.com
+<https://your_gitlab_domain_or_server_IP.com>
+
+1. Setting administrative account password
