@@ -62,3 +62,81 @@ Be sure to perform the following after any changes are made
 ```bash
 systemctl restart network
 ```
+
+Preparatory Work:
+
+```bash
+yum update
+yum install java-1.8.0-openjdk-devel
+yum install wget
+yum install zip
+```
+
+Add user and group to run Keycloak:
+
+```bash
+groupadd -r keycloak
+useradd -m -d /var/lib/keycloak -s /sbin/nologin -r -g keycloak keycloak
+```
+
+Create the base directory for Keycloak installation:
+
+```bash
+mkdir -p /opt/keycloak
+```
+
+Download the keycloak zip file:
+
+```bash
+wget https://downloads.jboss.org/keycloak/14.0.0/keycloak-14.0.0.zip -P /opt/keycloak
+unzip keycloak-14.0.0.zip -d /opt/keycloak
+```
+
+Create a symbolic link to the keycloak installation to allow for easy switching of versions should the need arise:
+
+```bash
+ln -s /opt/keycloak/keycloak-14.0.0 /opt/keycloak/current
+```
+
+Assign permissions to keycloak folder to the user and group we created:
+
+```bash
+chown keycloak: -R /opt/keycloak
+```
+
+Lock down the standalone directory so only the keycloak user has access to it:
+
+```bash
+chmod 700 /opt/keycloak/current/standalone
+```
+
+Create a systemd configuration to start and stop keycloak using systemd:
+
+```bash
+cat > /etc/systemd/system/keycloak.service <<EOF
+
+
+[Unit]
+Description=Keycloak
+After=network.target
+ 
+[Service]
+Type=idle
+User=keycloak
+Group=keycloak
+ExecStart=/opt/keycloak/current/bin/standalone.sh -b 0.0.0.0
+TimeoutStartSec=600
+TimeoutStopSec=600
+ 
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+```bash
+systemctl daemon-reload
+systemctl enable keycloak
+systemctl start keycloak
+```
+
+### KEYCLOAK INSTALLATION COMPLETE
