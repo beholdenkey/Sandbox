@@ -1,5 +1,7 @@
 # Keycloak Installation
 
+Hostname: jcu.kc.ntsdev.net
+
 Username: xadmin
 Password: P@ssw0rd12
 

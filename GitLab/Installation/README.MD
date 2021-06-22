@@ -1,5 +1,7 @@
 # Prerequisites
 
+Sources: [https://](https://linuxize.com/post/how-to-install-and-configure-gitlab-on-centos-7/)
+
 This tutorial assumes that you have a fresh CentOS 7 installation.
 
 According to the GitLab requirements page , it is recommended to use a server with:
