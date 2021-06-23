@@ -11,7 +11,7 @@ VM Hardware:
 
 - CPU - 2
 - Memory - 8 GB
-- Storage - 50 Global
+- Storage - 50
 
 Network:
 

@@ -10,8 +10,8 @@ Operating System - CentOS 7
 VM Hardware:
 
 - CPU - 2
-- Memory - 8 GB
-- Storage - 50 Global
+- Memory - 4 GB
+- Storage - 80
 
 Network:
 
