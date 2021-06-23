@@ -76,7 +76,7 @@ yum install zip
 
 ```bash
 cd /opt
-wget https://jdbc.postgresql.org/download/postgresql-42.2.22.jar
+wget https://jdbc.postgresql.org/download/postgresql-42.2.21.jar
 ```
 
 ## Install and Configure PostgreSQL Database
