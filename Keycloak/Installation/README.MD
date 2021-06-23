@@ -1,6 +1,6 @@
 # Keycloak Installation
 
-Hostname: jcu.kc.ntsdev.net
+Hostname: kc.automation.ntsdev.net
 
 Username: xadmin
 Password: P@ssw0rd12
@@ -15,7 +15,7 @@ VM Hardware:
 
 Network:
 
-- IPv4 - 192.168.128.14
+- IPv4 - 192.168.128.15
 - Gateway - 192.168.128.1
 - DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
 
