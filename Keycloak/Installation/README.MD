@@ -135,7 +135,7 @@ cat > /etc/systemd/system/keycloak.service <<EOF
 
 [Unit]
 Description=Keycloak
-After=network.target
+After=network.target syslog.target
  
 [Service]
 Type=idle
@@ -144,9 +144,18 @@ Group=keycloak
 ExecStart=/opt/keycloak/current/bin/standalone.sh -b 0.0.0.0
 TimeoutStartSec=600
 TimeoutStopSec=600
- 
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=keycloak
+
 [Install]
 WantedBy=multi-user.target
+' > /etc/systemd/system/keycloak.service
+
+echo 'if $programname == "keycloak" then /var/log/keycloak/jboss.log
+& stop
+'>/etc/rsyslog.d/keycloak.conf
 EOF
 ```
 
