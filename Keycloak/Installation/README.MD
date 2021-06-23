@@ -72,6 +72,23 @@ yum install wget
 yum install zip
 ```
 
+## Installing Dependencies
+
+```bash
+cd /opt
+wget https://jdbc.postgresql.org/download/postgresql-42.2.22.jar
+```
+
+## Install and Configure PostgreSQL Database
+
+```bash
+yum install postgresql-server
+postgresql-setup --initdb
+systemctl enable postgresql.service
+systemctl start postgresql.service
+```
+
+
 Add user and group to run Keycloak:
 
 ```bash
@@ -88,7 +105,7 @@ mkdir -p /opt/keycloak
 Download the keycloak zip file:
 
 ```bash
-wget https://downloads.jboss.org/keycloak/14.0.0/keycloak-14.0.0.zip -P /opt/keycloak
+wget https://github.com/keycloak/keycloak/releases/download/14.0.0/keycloak-14.0.0.zip -P /opt/keycloak
 unzip keycloak-14.0.0.zip -d /opt/keycloak
 ```
 
