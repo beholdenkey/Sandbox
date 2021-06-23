@@ -1,0 +1,17 @@
+embed-server --server-config=standalone.xml --std-out=echo
+
+batch
+#
+# remove the default provided datasource
+#
+/subsystem=datasources/data-source=KeycloakDS/:remove
+
+#
+# add them
+#
+module add --name=org.postgres --resources=/opt/keycloak/current/modules/system/layers/base/com/postgresql-42.2.21.jar --dependencies=javax.api,javax.transaction.api
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver)
+
+/subsystem=datasources/data-source=KeycloakDS/:add(connection-url=jdbc:postgresql://localhost:5432/keycloak,driver-name=postgres,jndi-name=java:jboss/datasources/KeycloakDS,initial-pool-size=4,max-pool-size=64,min-pool-size=4,password=P@ssw0rd12,user-name=keycloak
+
+run-batch
