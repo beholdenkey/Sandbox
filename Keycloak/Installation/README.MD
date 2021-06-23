@@ -139,7 +139,7 @@ After=network.target
 Type=idle
 User=keycloak
 Group=keycloak
-ExecStart=/bin/bash /opt/keycloak/keycloak-14.0.0/bin/standalone.sh
+ExecStart=/bin/bash /opt/keycloak/current/bin/standalone.sh
 TimeoutStartSec=600
 TimeoutStopSec=600
 
