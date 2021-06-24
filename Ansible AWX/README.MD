@@ -1,0 +1,20 @@
+# Ansible AWX Installation
+
+Hostname: awx.automation.ntsdev.net
+
+Username: xadmin
+Password: P@ssw0rd12
+
+Operating System - CentOS 7
+
+VM Hardware:
+
+- CPU - 2
+- Memory - 4 GB
+- Storage - 80
+
+Network:
+
+- IPv4 - 192.168.128.92
+- Gateway - 192.168.128.1
+- DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
