@@ -2,6 +2,8 @@
 
 Hostname: awx.automation.ntsdev.net
 
+Ansible Version 19.2.1
+
 Username: xadmin
 Password: P@ssw0rd12
 
