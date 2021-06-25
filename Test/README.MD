@@ -2,7 +2,6 @@
 
 Hostname: test.automation.ntsdev.net
 
-
 Username: xadmin
 Password: P@ssw0rd12
 
@@ -11,7 +10,7 @@ Operating System - RHEL 8.2
 VM Hardware:
 
 - CPU - 4
-- Memory - 8 GB 
+- Memory - 8 GB
 - Storage - 100
 
 Network:
