@@ -5,7 +5,7 @@ Hostname: test.automation.ntsdev.net
 Username: xadmin
 Password: P@ssw0rd12
 
-Operating System - RHEL 8.2
+Operating System - RHEL 8.4
 
 VM Hardware:
 
