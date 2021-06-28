@@ -7,7 +7,7 @@ Ansible Version 19.2.1
 Username: xadmin
 Password: P@ssw0rd12
 
-Operating System - CentOS 7
+Operating System - CentOS 8 Stream
 
 VM Hardware:
 
@@ -17,7 +17,7 @@ VM Hardware:
 
 Network:
 
-- IPv4 - 192.168.128.93
+- IPv4 - 192.168.128.92
 - Gateway - 192.168.128.1
 - DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
 
@@ -39,6 +39,8 @@ systemctl start sshd
 nano /etc/sysconfig/selinux
 
 SELINUX=disabled
+
+Note: You can also set to permissive. 
 
 reboot
 ```
