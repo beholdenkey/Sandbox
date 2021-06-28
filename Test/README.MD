@@ -40,3 +40,4 @@ SELINUX=disabled
 
 reboot
 ```
+http://subscription.rhsm.redhat.com/
