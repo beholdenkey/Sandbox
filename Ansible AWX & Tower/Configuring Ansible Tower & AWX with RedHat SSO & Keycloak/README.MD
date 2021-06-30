@@ -12,4 +12,9 @@ Follow these steps to create the key, certificate and key store to enable Ansibl
 
 If you do not possess an X.509 enter the following on while on the awx or tower server.
 
->Note: You will need OpenSSL or LibreSSL on Linux
+>Note: You will need OpenSSL or LibreSSL on Linux.
+
+```bash
+openssl genrsa -out key.pem 2048
+openssl req -new -key key.pem -out req.pem
+```
