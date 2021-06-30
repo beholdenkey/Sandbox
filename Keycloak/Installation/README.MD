@@ -49,7 +49,7 @@ yum update
 Install the following
 
 ```bash
-yum install net-tools nano
+yum install net-tools nano java-1.8.0-openjdk-devel wget zip unzip
 
 To manipulate the network configuration you can perform the following command. 
 
@@ -64,14 +64,6 @@ systemctl restart network
 ```
 
 Preparatory Work:
-
-```bash
-yum update
-yum install java-1.8.0-openjdk-devel
-yum install wget
-yum install zip
-```
-
 ## Installing Dependencies
 
 ```bash
