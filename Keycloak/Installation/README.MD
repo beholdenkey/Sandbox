@@ -1,11 +1,11 @@
 # Keycloak Installation
 
-Hostname: kc.automation.ntsdev.net
+Hostname: jcu.sso.ntsdev.net
 
 Username: xadmin
 Password: P@ssw0rd12
 
-Operating System - CentOS 7
+Operating System - CentOS 8 Stream
 
 VM Hardware:
 
@@ -15,7 +15,7 @@ VM Hardware:
 
 Network:
 
-- IPv4 - 192.168.128.15
+- IPv4 - 192.168.128.12
 - Gateway - 192.168.128.1
 - DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
 
@@ -87,7 +87,6 @@ yum install postgresql-server
 systemctl enable postgresql.service
 systemctl start postgresql.service
 ```
-
 
 Add user and group to run Keycloak:
 
