@@ -19,18 +19,7 @@ Network:
 - Gateway - 192.168.128.1
 - DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
 
-## Related Objects
-
-Cluster: vSAN Cluster
-
-Resource Pool:
-Networks:  - Vlan 133
-Storage:
-
-- FreeNAS
-- vsanDatastore
-
-### CentOS 7 Server Setup
+## CentOS 7 Server Setup
 
 - Disable KERNEL DUMP
 - Configure Network
