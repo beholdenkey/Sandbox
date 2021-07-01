@@ -20,6 +20,8 @@ services:
 
   Nautobot:
     image: "networktocode/nautobot"
+    volumes:
+      - /local/path/to/custom/nautobot_config.py:/opt/nautobot/nautobot_config.py:ro
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: db

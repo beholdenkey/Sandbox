@@ -19,3 +19,6 @@ Network:
 - Gateway - 192.168.128.1
 - DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
 
+## Objective
+
+The goal is to deploy multiple containers supporting Nautobot and Ansible AWX
