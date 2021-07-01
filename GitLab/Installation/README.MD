@@ -1,21 +1,21 @@
 # GitLab Installation
 
-Hostname: git.automation.ntsdev.net
+Hostname: jcu.git.ntsdev.net
 
 Username: xadmin
 Password: P@ssw0rd12
 
-Operating System - CentOS 7
+Operating System - CentOS 8 Stream
 
 VM Hardware:
 
 - CPU - 2
 - Memory - 4 GB
-- Storage - 80
+- Storage - 125
 
 Network:
 
-- IPv4 - 192.168.128.91
+- IPv4 - 192.168.128.92
 - Gateway - 192.168.128.1
 - DNS: 8.8.8.8, 192.168.210.50, 192.168.210.51
 
