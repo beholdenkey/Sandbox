@@ -1,0 +1,35 @@
+# SAML Service Provider Organization Info:
+{
+ "en-US": {
+  "url": "https://192.168.99.235",
+  "displayname": "Keycloak",
+  "name": "Keycloak"
+ }
+}
+---
+# SAML Service Provider Technical Contact:
+{
+ "givenName": "Admin",
+ "emailAddress": "Admin@tower.com"
+}
+---
+# SAML Service Provider Support Contact:
+{
+ "givenName": "Admin",
+ "emailAddress": "Admin@tower.com"
+}
+---
+# SAML Enabled Identity Provider:
+{
+ "RHSSO": {
+  "attr_last_name": "last_name",
+  "attr_username": "username",
+  "entity_id": "<SSO SERVER URL>:<PORT IF NEEDED>/auth/realms/YOUR REALM",
+  "attr_user_permanent_id": "name_id",
+  "url": "<SSO SERVER URL>:<PORT IF NEEDED>/auth/realms/YOUR REALM/protocol/saml",
+  "attr_email": "email",
+  "x509cert":  “ <PASTE THE X509 PUBLIC CERT HERE IN ONE, NON-BREAKING LINE>",
+  "attr_first_name": "first_name"
+ }
+}
+---
