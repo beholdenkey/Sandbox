@@ -1,7 +1,7 @@
 # SAML Service Provider Organization Info:
 {
  "en-US": {
-  "url": "<URL OF TOWER SERVER>:<PORT IF NEEDED>",
+  "url": "https://192.168.99.235",
   "displayname": "Keycloak",
   "name": "Keycloak"
  }
@@ -9,22 +9,22 @@
 ---
 # SAML Service Provider Technical Contact:
 {
- "givenName": "<YOUR NAME>",
- "emailAddress": "<YOUR EMAIL>"
+ "givenName": "admin",
+ "emailAddress": "admin@blackwood.com"
 }
 ---
 # SAML Service Provider Support Contact:
 {
- "givenName": "<YOUR NAME>",
- "emailAddress": "<YOUR EMAIL>"
+ "givenName": "admin",
+ "emailAddress": "admin@blackwood.com"
 }
 ---
 # SAML Enabled Identity Provider:
 {
- "RHSSO": {
+ "Keycloak": {
   "attr_last_name": "last_name",
   "attr_username": "username",
-  "entity_id": "<SSO SERVER URL>:<PORT IF NEEDED>/auth/realms/YOUR REALM",
+  "entity_id": "http://192.168.128.11:8080/auth/realms/Blackwood",
   "attr_user_permanent_id": "name_id",
   "url": "<SSO SERVER URL>:<PORT IF NEEDED>/auth/realms/YOUR REALM/protocol/saml",
   "attr_email": "email",
