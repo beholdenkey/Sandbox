@@ -1,0 +1,1 @@
+killall -i nautobot-server
