@@ -6,3 +6,7 @@
 <https://www.techsupportpk.com/2020/03/how-to-install-ansible-awx-centos-rhel-7-8.html>
 <https://docs.ansible.com/ansible-tower/>
 <https://computingforgeeks.com/install-latest-python-on-centos-linux/>
+
+
+
+docker pull quay.io/ansible/awx
