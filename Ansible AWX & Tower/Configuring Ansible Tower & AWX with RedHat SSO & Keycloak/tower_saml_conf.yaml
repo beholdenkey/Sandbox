@@ -1,0 +1,32 @@
+
+{
+ "en-US": {
+  "url": "https://192.168.99.235",
+  "displayname": "Blackwood Ansible Tower",
+  "name": "ansible-tower"
+ }
+}
+
+{
+ "givenName": "admin",
+ "emailAddress": "admin@blackwood.com"
+}
+
+{
+ "givenName": "admin",
+ "emailAddress": "admin@blackwood.com"
+}
+
+{
+ "Keycloak": {
+  "entity_id": "http://192.168.128.11:8080/auth/realms/Blackwood",
+  "url": "http://192.168.128.11:8080/auth/realms/Blackwood/protocol/saml",
+  "x509cert": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsAHfSJgCQmHJyhtTClLPKiq/GWNaSAt3ruaQ2f76SFQ2+5vmEVhpL2fY9sAUF6ezmzcxwe51yRzawF25RjEv5ZEM2Yv7c7lhQN2gqwuJGf8SNsLVNjk/kyAyh+/hfZEEqx2CdcQqrXmn6cuL0nov5116J6Sd0rrKtc5nvod+aBR8tHGvDhoRAhboGTwDNFBhzuehvF1Z6kvhucVOLQjJKXMvA7Rinlx3oqLWvMpmq/vYl9JBuPd+kT2t2TlzA8cO0muigNJkTZpWclb6HK23bXcdM1qI2gjg9y7IbpOFuWYc3v6R37FC//JwW1/u6RGLZ/nGU2ZXf0FdyUifyNrb9wIDAQAB",
+  "attr_user_permanent_id": "name_id",
+  "attr_first_name": "first_name",
+  "attr_last_name": "last_name",
+  "attr_username": "username",
+  "attr_email": "email"
+ }
+}
+---

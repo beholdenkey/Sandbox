@@ -1,0 +1,32 @@
+# SAML Service Provider Organization Info:
+{
+  "en-US":
+    {
+      "url": "<URL OF TOWER SERVER>:<PORT IF NEEDED>",
+      "displayname": "Keycloak",
+      "name": "Keycloak",
+    },
+}
+---
+# SAML Service Provider Technical Contact:
+{ "givenName": "<YOUR NAME>", "emailAddress": "<YOUR EMAIL>" }
+---
+# SAML Service Provider Support Contact:
+{ "givenName": "<YOUR NAME>", "emailAddress": "<YOUR EMAIL>" }
+---
+# SAML Enabled Identity Provider:
+{
+  "Keycloak":
+    {
+      "entity_id": "",
+      "url": "",
+      "x509cert": "",
+      "attr_user_permanent_id": "name_id",
+      "attr_first_name": "first_name",
+      "attr_last_name": "last_name",
+      "attr_username": "username",
+      "attr_email": "email",
+    },
+}
+---
+
