@@ -1,6 +1,6 @@
 # Keycloak Installation
 
-Hostname: jcu.sso.ntsdev.net
+Hostname: sso.ntsdev.net
 
 Username: xadmin
 Password: P@ssw0rd12
