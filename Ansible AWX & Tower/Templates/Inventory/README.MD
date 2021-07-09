@@ -31,3 +31,12 @@ To run Ansible commands with a custom inventory file, use the -i option as follo
 ``` bash
 ansible all -i inventory -m ping
 ```
+
+This would execute the ping module on all hosts listed in your custom inventory file.
+
+Similarly, this is how you execute Ansible playbooks with a custom inventory file:
+
+```bash
+ansible-playbook -i inventory playbook.yml
+```
+## Step 2 — Organizing Servers Into Groups and Subgroups
