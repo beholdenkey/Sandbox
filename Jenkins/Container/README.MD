@@ -1,16 +1,27 @@
-# This is interchangable with Podman version 3
+# This is interchangeable with Podman version 3
 
-   Start the my-jenkins-3 container
+1. Start the jenkins container
+
+```bash
 docker-compose up -d
+```
 
-1. Get the initial admin password
-docker exec my-jenkins-3 cat /var/jenkins_home/secrets/initialAdminPassword
+1.1 When you want to deploy your production file, simply run the following:
 
-2. Confirm the my-jenkins-3 container is running
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+```
+
+2. Get the initial admin password
+
+```bash
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+3. Confirm the jenkins container is running
+
+```bash
 docker ps
+```
 
-## References:
-
-https://adamtheautomator.com/jenkins-docker/
-
-
+## References
