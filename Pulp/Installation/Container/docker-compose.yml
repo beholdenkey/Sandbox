@@ -1,0 +1,118 @@
+version: "3"
+services:
+  reverse_proxy:
+    image: traefik:latest
+    command:
+      - "--defaultentrypoints=http,https"
+      - "--logLevel=DEBUG"
+      - "--api"
+      - "--web"
+      - "--docker"
+      - "--docker.domain=example.com"
+      - "--docker.watch"
+      - "--insecureSkipVerify"
+      - "--accessLog"
+      - "--accessLog.format=json"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      #- /etc/docker/traefik/certs:/certs
+      #- /etc/docker/traefik/traefik.toml:/etc/traefik/traefik.toml
+    networks:
+      - traefik_net
+    ports:
+      - 80:80
+      - 8080:8080
+
+  pgsql:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: pulp
+      POSTGRES_PASSWORD: pulp
+    volumes:
+      - "pgdata:/var/lib/postgresql/data"
+    labels:
+      - "traefik.enable=false"
+    ports:
+      - 5432:5432
+    networks:
+      - pulp_net
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    labels:
+      - "traefik.enable=false"
+    networks:
+      - pulp_net
+
+  resource_manager:
+    depends_on:
+      - redis
+      - pgsql
+    image: tchellomello/pulp-worker:nightly
+    restart: always
+    environment:
+      PULP_DB_HOST: pgsql
+      PULP_DB_NAME: pulp
+      PULP_DB_USERNAME: pulp
+      PULP_DB_PASSWORD: pulp
+      PULP_DB_PORT: 5432
+      PULP_REDIS_HOST: redis
+      PULP_REDIS_PORT: 6379
+    labels:
+      - "traefik.enable=false"
+    networks:
+      - pulp_net
+
+  worker:
+    depends_on:
+      - resource_manager
+    image: tchellomello/pulp-worker:nightly
+    restart: always
+    environment:
+      PULP_DB_HOST: pgsql
+      PULP_DB_NAME: pulp
+      PULP_DB_USERNAME: pulp
+      PULP_DB_PASSWORD: pulp
+      PULP_DB_PORT: 5432
+      PULP_REDIS_HOST: redis
+      PULP_REDIS_PORT: 6379
+    labels:
+      - "traefik.enable=false"
+    networks:
+      - pulp_net
+
+  web:
+    depends_on:
+      - worker
+    image: tchellomello/pulp-web:nightly
+    restart: always
+    environment:
+      PULP_DB_HOST: pgsql
+      PULP_DB_NAME: pulp
+      PULP_DB_USERNAME: pulp
+      PULP_DB_PASSWORD: pulp
+      PULP_DB_PORT: 5432
+      PULP_REDIS_HOST: redis
+      PULP_REDIS_PORT: 6379
+    labels:
+      - "traefik.port=8000"
+      - "traefik.backend=pulp_worker"
+      - "traefik.docker.network=traefik-net"
+      - "traefik.frontend.rule=Host:worker.example.com"
+      - "traefik.enable=true"
+      - "traefik.default.protocol=http"
+    ports:
+      - 8000:8000
+    networks:
+      - pulp_net
+      - traefik_net
+
+volumes:
+  pgdata:
+
+networks:
+  traefik_net:
+  pulp_net:

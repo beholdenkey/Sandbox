@@ -1,0 +1,30 @@
+---
+- hosts: all
+  vars:
+    pulp_settings:
+      secret_key: << YOUR SECRET HERE >>
+      content_origin: "https://{{ ansible_fqdn }}"
+    pulp_default_admin_password: << YOUR PASSWORD HERE >>
+    pulp_install_plugins:
+      galaxy-ng: {}
+      pulp-ansible: {}
+      # pulp-certguard: {}
+      pulp-container: {}
+      # pulp-cookbook: {}
+      pulp-deb: {}
+      pulp-file: {}
+      # pulp-gem: {}
+      # pulp-maven: {}
+      # pulp-npm: {}
+      pulp-python: {}
+      pulp-rpm: {}
+  # can be removed once this is resolved: https://pulp.plan.io/issues/8701
+  pre_tasks:
+    - name: install EPEL
+      yum:
+        name: epel-release
+      become: yes
+  roles:
+    - pulp.pulp_installer.pulp_all_services
+  environment:
+    DJANGO_SETTINGS_MODULE: pulpcore.app.settings
