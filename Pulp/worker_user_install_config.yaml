@@ -1,0 +1,56 @@
+---
+pulp_default_admin_password: password
+pulp_install_plugins:
+  pulp-ansible: {}
+pulp_settings:
+  secret_key: secret
+  content_origin: "http://{{ ansible_fqdn }}"
+pulp_workers:
+  1:
+    state: started
+    enabled: true
+  2:
+    state: started
+    enabled: true
+  3:
+    state: started
+    enabled: true
+  4:
+    state: started
+    enabled: true
+  5:
+    state: started
+    enabled: true
+  6:
+    state: started
+    enabled: true
+  7:
+    state: started
+    enabled: true
+  8:
+    state: started
+    enabled: true
+  9:
+    state: started
+    enabled: true
+  10:
+    state: started
+    enabled: true
+  11:
+    state: started
+    enabled: true
+  12:
+    state: started
+    enabled: true
+  13:
+    state: started
+    enabled: true
+  14:
+    state: started
+    enabled: true
+  15:
+    state: started
+    enabled: true
+  16:
+    state: started
+    enabled: true

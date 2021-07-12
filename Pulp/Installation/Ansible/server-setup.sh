@@ -16,9 +16,9 @@ sudo dnf -y update && \
 dnf groupinstall "Development Tools" -y
 
 # dnf -y install epel-release
-# sudo dnf -y install ansible
+ sudo dnf -y install ansible
 # dnf groupinstall "Development Tools" -y
-# dnf install openssl-devel libffi-devel bzip2-devel wget -y
+dnf install openssl-devel libffi-devel bzip2-devel wget -y
 
 wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz
 
@@ -51,3 +51,6 @@ ansible-galaxy install geerlingguy.postgresql
 # 3 - Write the following playbook:
 
 nano install.yml
+
+
+# 4 - Open firwall
