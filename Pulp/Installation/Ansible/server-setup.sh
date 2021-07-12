@@ -1,16 +1,24 @@
 # These commands need to be run prior to running the pulp installer ansible playbook. 
 
-sudo systemctl enable --now
+sudo systemctl enable --now sshd
 
 sudo dnf -y update && \
   dnf -y install && \
   nano \
-  net-tools \  
+  net-tools \
+  epel-release \
+  ansible \
+  openssl-devel \
+  libffi-devel \
+  bzip2-devel \
+  wget \
 
-dnf -y install epel-release
-sudo dnf -y install ansible
 dnf groupinstall "Development Tools" -y
-dnf install openssl-devel libffi-devel bzip2-devel wget -y
+
+# dnf -y install epel-release
+# sudo dnf -y install ansible
+# dnf groupinstall "Development Tools" -y
+# dnf install openssl-devel libffi-devel bzip2-devel wget -y
 
 wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz
 
