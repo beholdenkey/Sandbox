@@ -39,7 +39,7 @@ services:
       - pulp_net
 
   redis:
-    image: "redis:4-alpine"
+    image: redis:latest
     ports:
       - 6379:6379
     labels:
