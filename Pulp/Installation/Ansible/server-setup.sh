@@ -7,7 +7,6 @@ sudo dnf -y update && \
   nano \
   net-tools \
   epel-release \
-  ansible \
   openssl-devel \
   libffi-devel \
   bzip2-devel \
