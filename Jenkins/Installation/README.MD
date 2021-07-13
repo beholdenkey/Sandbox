@@ -1,6 +1,8 @@
 # Jenkins Installation
 
+><https://devopscube.com/configure-ssl-jenkins/>
 ><https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos>
+><https://scriptcrunch.com/create-ca-tls-ssl-certificates-keys/>
 
 Step 1: Install Java
 
