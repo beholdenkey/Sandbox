@@ -1,5 +1,7 @@
 # Jenkins Installation
 
+>https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
 Step 1: Install Java
 
 ```bash
