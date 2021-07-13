@@ -3,7 +3,7 @@
 sudo systemctl enable --now sshd
 
 sudo dnf -y update && \
-  dnf -y install && \
+  dnf -y install \
   nano \
   net-tools \
   epel-release \
