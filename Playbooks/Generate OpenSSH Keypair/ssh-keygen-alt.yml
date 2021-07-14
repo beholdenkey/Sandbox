@@ -6,12 +6,4 @@
   tasks:
   - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
     openssh_keypair:
-      path: /home/youruser/.ssh/id_rsa
-      owner: youruser
-      group: youruser
-
-  - name: Fix owner of the generated pub key
-    file:
-      path: /home/youruser/.ssh/id_rsa.pub
-      owner: youruser
-      group: youruser
+      path: /home/xadmin/.ssh/id_rsa
