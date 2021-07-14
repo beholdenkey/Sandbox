@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     pulp_settings:
-      secret_key: << YOUR SECRET HERE >>
+      secret_key: <>
       content_origin: "https://{{ ansible_fqdn }}"
     pulp_default_admin_password: << YOUR PASSWORD HERE >>
     pulp_install_plugins:
