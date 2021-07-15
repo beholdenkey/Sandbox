@@ -22,7 +22,7 @@ chmod +x script_name
 This will allow you to run the scripts as shown:
 
 ```bash
-$ ./script_name
+./script_name
 ```
 
 Tip: Add the `scripts` directory to your `$PATH` by including the line below to your shell configs to access them from anywhere.
