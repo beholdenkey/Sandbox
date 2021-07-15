@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+  - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+    openssh_keypair:
+      path: /home/xadmin/.ssh/id_rsa
