@@ -1,7 +1,0 @@
-keycloak-gatekeeper:
-  container_name: Blackwood-Gatekeeper
-  image: docker.io/bitnami/keycloak-gatekeeper:10
-  ports:
-    - "3000:3000"
-  networks:
-    - dev_network
