@@ -1,4 +1,11 @@
 #!/bin/bash
+echo "Install Docker CE"
+read -p "Continue (y/n)?" CONT
+if [ "$CONT" = "y" ]; then
+    echo "Acknowledged"
+  else
+    echo "Aborted"
+  fi
 sudo apt update && apt upgrade
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y

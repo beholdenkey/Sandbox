@@ -7,13 +7,13 @@ if [ "$CONT" = "y" ]; then
   else
     echo "Aborted"
   fi
-sudo dnf -y update
+dnf -y update
 
-sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 
-sudo dnf install docker-ce --nobest -y
+dnf install docker-ce --nobest -y
 
-sudo systemctl enable docker
-sudo systemctl start docker
+systemctl enable docker
+systemctl start docker
 
-sudo reboot now
+reboot now
