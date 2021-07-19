@@ -20,3 +20,6 @@ Default Admin User:
 - Email: admin@example.com
 - Password: changeme
 
+### Disclaimer
+
+If you are going to use this for production or even personal use it is highly recommended that you do not use the default settings in the docker-compose.yml file
