@@ -1,6 +1,9 @@
 #!/bin/bash
+# Created by @beholdenkey
 # Install Docker CE on CentOS 8 and CentOS 8 Stream
 echo "Install Docker CE"
+echo "Please be advised"
+echo "System will reboot upon completion"
 read -p "Continue (y/n)?" CONT
 if [ "$CONT" = "y" ]; then
     echo "Acknowledged"
