@@ -1,0 +1,1 @@
+sudo buildah bud -f MyDockerfile -t my_image_name:latest --tls-verify=false
