@@ -24,6 +24,7 @@ dnf -y localinstall jdk-16.0.1_linux-x64_bin.rpm
 groupadd -r keycloak
 useradd -m -d /var/lib/keycloak -s /sbin/nologin -r -g 
 keycloak keycloak
+
 mkdir -p /opt/keycloak
 
 wget https://github.com/keycloak/keycloak/releases/download/14.0.0/keycloak-14.0.0.tar.gz -P /opt/keycloak
