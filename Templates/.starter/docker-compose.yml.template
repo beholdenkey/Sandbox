@@ -1,0 +1,34 @@
+---
+{{range .Services}}
+{{.Name}}:
+  build: {{.BuildRoot}}
+  command: {{.Command}}
+  {{if .Ports}}
+  ports:
+    {{range .Ports}}
+      {{if eq .Container "80"}}
+  - "3000:{{.Container}}"
+      {{else}}
+  - "{{.Container}}:{{.Container}}"
+      {{end}}
+    {{end}}
+  {{end}}
+  {{if .Databases}}	
+  links:
+    {{range .Databases}}
+  - {{.Name}}
+  - {{.Name}}:{{.Name}}.cloud66.local
+    {{end}}
+  {{end}}
+  {{if .EnvVars}}
+  environment:{{range .EnvVars}}
+  - {{.Key}}={{.Value}}
+  {{end}}{{end}}
+{{end}}
+
+{{if .Dbs}}	
+{{range .Dbs}}
+{{.Name}}:
+  image: {{.DockerImage}}
+{{end}}
+{{end}}
