@@ -14,11 +14,13 @@ dnf -y update && \
 
 firewall-cmd --zone=public --add-service=http --permanent
 firewall-cmd --zone=public --add-service=https --permanent
-firewall-cmd --zone=public --add-port=8080/tcp --permanent
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --reload
 
-wget https://download.oracle.com/otn-pub/java/jdk/16.0.1+9/7147401fd7354114ac51ef3e1328291f/jdk-16.0.1_linux-x64_bin.rpm
+wget https://download.java.net/java/GA/jdk16.0.2/d4a915d82b4c4fbb9bde534da945d746/7/GPL/openjdk-16.0.2_linux-x64_bin.tar.gz
 
+tar zxvf openjdk-16.0.2_linux-x64_bin.tar.gz
 dnf -y localinstall jdk-16.0.1_linux-x64_bin.rpm
 
 groupadd -r keycloak
