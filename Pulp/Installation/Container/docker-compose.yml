@@ -8,7 +8,7 @@ services:
       - "--api"
       - "--web"
       - "--docker"
-      - "--docker.domain=example.com"
+      - "--docker.domain=ntsdev.net"
       - "--docker.watch"
       - "--insecureSkipVerify"
       - "--accessLog"
@@ -51,7 +51,7 @@ services:
     depends_on:
       - redis
       - pgsql
-    image: tchellomello/pulp-worker:nightly
+    image: pulp/pulp
     restart: always
     environment:
       PULP_DB_HOST: pgsql
@@ -69,7 +69,7 @@ services:
   worker:
     depends_on:
       - resource_manager
-    image: tchellomello/pulp-worker:nightly
+    image:
     restart: always
     environment:
       PULP_DB_HOST: pgsql
@@ -87,7 +87,7 @@ services:
   web:
     depends_on:
       - worker
-    image: tchellomello/pulp-web:nightly
+    image: pulp:latest
     restart: always
     environment:
       PULP_DB_HOST: pgsql
@@ -101,7 +101,7 @@ services:
       - "traefik.port=8000"
       - "traefik.backend=pulp_worker"
       - "traefik.docker.network=traefik-net"
-      - "traefik.frontend.rule=Host:worker.example.com"
+      - "traefik.frontend.rule=Host:worker.ntsdev.net"
       - "traefik.enable=true"
       - "traefik.default.protocol=http"
     ports:
