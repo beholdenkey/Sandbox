@@ -1,5 +1,4 @@
 FROM registry.redhat.io/ubi8/ubi
-MAINTAINER "myORG" myemail@my.domain
 USER root
 RUN yum install wget unzip -y
 # COPY /repos/yum.repos.d/ /etc/yum.repos.d/
