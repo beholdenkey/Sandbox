@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  redis_s:
+    build: ./redis_s
+    image: carrefourdsr/redis
+    container_name: redis_s_nautobot
+    ports:
+      - "6379"
+
+  redis-sentinel:
+    image: docker.io/bitnami/redis-sentinel:latest
+    container_name: redis_sentinel_nautobot
+    environment:
+      - REDIS_MASTER_HOST=redis_s_nautobot
+
+  nautobot:
+    image: "networktocode/nautobot"
+    volumes:
+      - ./nautobot/nautobot_config.py:/opt/nautobot/nautobot_config.py:ro
+    environment:
+      - NAUTOBOT_ROOT=/opt/nautobot/
+      - NAUTOBOT_DEBUG=True
+    container_name: nautobot
+
+  sql:
+    image: postgres:11
+    restart: always
+    container_name: sql-nautobot
+    environment:
+      POSTGRES_USER: user1
+      POSTGRES_PASSWORD: cisco1234
+      POSTGRES_DB: nautobot

@@ -2,14 +2,18 @@
 #------------------------------------------------------------ #
 # By @beholdenkey
 # Compatible Operating systems: Centos 8 Stream, RHEL 8, Fedora 34
-# Script to install Python 3.9.6 on CentOS 8 Stream and RHEL 8
+# Script to install Nautobot - CentOS and RHEL
 #------------------------------------------------------------- #
+
+echo "Update to Latest Python Version"
 
 sudo dnf -y update && \
     dnf -y install \
     openssl-devel \
     libffi-devel \ 
     bzip2-devel \
+    git
+    
     wget && \
 dnf groupinstall "Development Tools" -y
 
@@ -29,3 +33,6 @@ rm -rf Python-3.9.6.tgz
 rm -rf Python-3.9.6
  
 python3.9 --version
+
+echo "Python has been update to 3.9.6"
+
