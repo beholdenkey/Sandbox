@@ -1,15 +1,14 @@
 # **Keybox:**
 
-Keybox is a repository for configuring applications such as GitLab, Ansible AWX, Netbox and Nautobot to be secured by Keycloak either by OpenID Connect or SAML 2.0.
+Pandoras Box is my personal development sandbox. I have compiled and developed many different ways to deploy applications in various environments in this repository. Many of the processes I use in my other projects are first displayed here.
 
 ## **Motivation:**
 
-There are a lot of configurations and repositories out there with a ton of great resources. This repository will hold current ones that I have tested and successfully implemented in both a development and production environment.
+My motivation behind this is to take various open-source applications and tools and push them to their limits and create easy-to-read and understand instructions on how to install and use these tools for everyone.
 
 ### *Contribution:*
 
-If you have any interest in contributing knowledge expertise or anything you have found helpful when it comes to this
-please feel free to reach out.
+If anyone is interested in contributing, please feel free to create an issue, and I would be more than welcome to work with others to share knowledge and help others.
 
 ## Usage
 
