@@ -1,16 +1,16 @@
-# **Keybox:**
+# **Pandoras Box**
 
 Pandoras Box is my personal development sandbox. I have compiled and developed many different ways to deploy applications in various environments in this repository. Many of the processes I use in my other projects are first displayed here.
 
-## **Motivation:**
+## **Motivation**
 
 My motivation behind this is to take various open-source applications and tools and push them to their limits and create easy-to-read and understand instructions on how to install and use these tools for everyone.
 
-### *Contribution:*
+## *Contribution*
 
 If anyone is interested in contributing, please feel free to create an issue, and I would be more than welcome to work with others to share knowledge and help others.
 
-## Usage
+### Usage
 
 If you try using any of these, remember to give execute permissions to the script.
 
