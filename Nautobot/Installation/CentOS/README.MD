@@ -45,3 +45,36 @@ systemctl status postgresql-13
 ```
 
 Step 4: Create Database:
+
+>Please note following variables can be changed as neccessary. It is important to understand that these variables should be changed if you are using Nautobot for your Production IPAM requirements.
+
+```bash
+$ sudo -u postgres psql
+psql (10.15)
+Type "help" for help.
+
+postgres=# CREATE DATABASE nautobot;
+CREATE DATABASE
+postgres=# CREATE USER nautobot WITH PASSWORD 'insecure_password';
+CREATE ROLE
+postgres=# GRANT ALL PRIVILEGES ON DATABASE nautobot TO nautobot;
+GRANT
+postgres=# \q
+```
+
+Verify Service Status:
+
+You can verify that authentication works issuing the following command and providing the configured password. (Replace localhost with your database server if using a remote database.)
+
+If successful, you will enter a nautobot prompt. Type \conninfo to confirm your connection, or type \q to exit.
+
+```bash
+$ psql --username nautobot --password --host localhost nautobot
+Password for user nautobot:
+psql (10.15)
+Type "help" for help.
+
+nautobot=> \conninfo
+You are connected to database "nautobot" as user "nautobot" on host "localhost" (address "127.0.0.1") at port "5432".
+nautobot=> \q
+```
