@@ -96,3 +96,18 @@ nautobot=> \conninfo
 You are connected to database "nautobot" as user "nautobot" on host "localhost" (address "127.0.0.1") at port "5432".
 nautobot=> \q
 ```
+
+Step 5: Redis Setup
+
+Start the service and enable it to run at system startup:
+
+```bash
+sudo systemctl enable --now redis
+```
+
+Verify Redis Service Status:
+
+```bash
+$ redis-cli ping
+PONG
+```
