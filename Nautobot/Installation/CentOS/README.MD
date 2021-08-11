@@ -62,6 +62,24 @@ GRANT
 postgres=# \q
 ```
 
+IMPORTANT:
+Change the postgres user password, because by default it doesn't have one.
+
+With a connection now established to Postgres at the psql prompt, issue the ALTER USER command to change the password for the postgres user:
+
+```SQL
+postgres=# ALTER USER postgres PASSWORD 'myPassword';
+ALTER ROLE
+```
+
+If successful, Postgres will output a confirmation of ALTER ROLE as seen above.
+
+Finally, exit the psql client by using the \q command.
+
+```SQL
+postgres=# \q
+```
+
 Verify Service Status:
 
 You can verify that authentication works issuing the following command and providing the configured password. (Replace localhost with your database server if using a remote database.)
