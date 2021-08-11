@@ -46,7 +46,7 @@ systemctl status postgresql-13
 
 Step 4: Create Database:
 
->Please note following variables can be changed as neccessary. It is important to understand that these variables should be changed if you are using Nautobot for your Production IPAM requirements.
+>Please note following variables can be changed as necessary. It is important to understand that these variables should be changed if you are using Nautobot for your Production IPAM requirements.
 
 ```bash
 $ sudo -u postgres psql
