@@ -15,6 +15,9 @@ sudo dnf -y update && \
     redis \
     https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
+firewall-cmd --permanent --add-port=5432/tcp
+firewall-cmd --reload
+
 echo 'Disabling Base OS PostgreSQL Module'
 dnf -qy module disable postgresql
 
