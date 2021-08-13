@@ -10,41 +10,41 @@ networks:
 services:
   db:
     container_name: Blackwood-Postgres
-    image: postgres:12.0-alpine
+    image: postgres:latest
     volumes:
       - my_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: blackwood  
+      POSTGRES_DB: blackwood
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: P@ssw0rd12
     networks:
-      - dev_network 
-  
+      - dev_network
+
   keycloak:
-      container_name: Blackwood-Keycloak
-      image: jboss/keycloak
-      hostname: keycloak.jcu.dev
-      environment:
-        DB_VENDOR: POSTGRES
-        DB_ADDR: db
-        DB_DATABASE: blackwood
-        DB_USER: admin
-        DB_SCHEMA: public
-        DB_PASSWORD: P@ssw0rd12
-        KEYCLOAK_USER: admin
-        KEYCLOAK_PASSWORD: P@ssw0rd12
-      ports:
-        - 8080:8080
-      depends_on:
-        - db
-      networks:
-        - dev_network
+    container_name: Blackwood-Keycloak
+    image: jboss/keycloak
+    hostname: keycloak.dev
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: db
+      DB_DATABASE: blackwood
+      DB_USER: admin
+      DB_SCHEMA: public
+      DB_PASSWORD: P@ssw0rd12
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: P@ssw0rd12
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - dev_network
 
   Nautobot:
-      container_name: Blackwood-Nautobot
-      image: networktocode/nautobot-lab
-      hostname: nautobot.jcu.dev
-      ports:
-        - "8000:8000"
-      networks:
-        - dev_network
+    container_name: Blackwood-Nautobot
+    image: networktocode/nautobot-lab
+    hostname: nautobot.dev
+    ports:
+      - "8000:8000"
+    networks:
+      - dev_network
