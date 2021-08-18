@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 #------------------------------------------------------------ #
 # By @beholdenkey
 # Compatible Operating systems: Centos 8 Stream, RHEL 8, Fedora 34
