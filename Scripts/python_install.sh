@@ -1,7 +1,7 @@
 #!/bin/bash
 #------------------------------------------------------------ #
 # By @beholdenkey
-# Compatible Operating systems: Centos 8 Stream, RHEL 8, Fedora 34
+# Compatible Operating systems: Centos 8 Stream, RHEL 8
 # Script to install Python 3.9.6 on CentOS 8 Stream and RHEL 8
 #------------------------------------------------------------- #
 
